@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wedding — Abdelrahman & Haidy</title>
+
+  <!-- Palette (from your identity) -->
+  <style>
+    :root{
+      --cream:#F8F2E8;
+      --sage:#D9D3B6;
+      --olive:#8A8F54;
+      --deep-olive:#515729;
+      --terracotta:#C65E2E;
+      --ink:#2B2B2B;
+      --sky:#BFD6F6;
+      --white:#fff;
+    }
+    /* Global */
+    html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);}
+    body{font-family: ui-serif, "Cormorant Garamond", Georgia, serif; line-height:1.35;}
+    a{color:inherit;}
+    /* Frame inspired by reference site */
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+      position: relative;
+    }
+    .frame{
+      position: absolute; inset:0;
+      pointer-events:none; mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.06), rgba(0,0,0,0) 60%);
+    }
+    header{
+      text-align:center; padding:12px 0 6px;
+      letter-spacing:.3px; font-weight:600; color:var(--deep-olive);
+    }
+
+    /* The sliced GIF stack */
+    .stack{display:block; width:100%; border:0; margin:0 auto; height:auto}
+    .center{display:block; margin-inline:auto}
+    /* subtle card footer */
+    footer{
+      margin-top:28px; text-align:center; font-size:.9rem; opacity:.8;
+    }
+
+    /* Decorative border accents (optional) */
+    .accent{
+      width:100%; height:10px; margin:10px 0 18px;
+      background:
+        repeating-linear-gradient(90deg,
+          var(--sage) 0 36px,
+          var(--cream) 36px 42px
+        );
+      border-radius:6px;
+      box-shadow: inset 0 0 0 2px var(--olive);
+    }
+
+    /* Loading tweaks */
+    img[loading="lazy"]{content-visibility:auto}
+    /* Button look for RSVP if you want to add a visible CTA below too */
+    .cta{
+      display:inline-block; padding:.9rem 1.25rem; background:var(--terracotta);
+      color:var(--white); border-radius:999px; text-decoration:none; font-weight:700;
+      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+    }
+  </style>
+
+  <!-- Optional webfont similar to your invite -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap">
+
+  <!-- Preload top slices so it feels instant -->
+  <link rel="preload" as="image" href="1.gif">
+  <link rel="preload" as="image" href="2.gif">
+</head>
+<body>
+  <div class="wrap">
+    <div class="frame" aria-hidden="true"></div>
+
+    <header>Abdelrahman Khalil &nbsp;•&nbsp; Haidy Hossam</header>
+    <div class="accent" aria-hidden="true"></div>
+
+    <!-- Slices (use your exact files). Image-maps below will resize automatically -->
+    <img class="stack center" src="1.gif" alt="Hero — invitation art" width="900" height="auto">
+    <img class="stack center" src="2.gif" alt="Intro panel" loading="lazy">
+    <img class="stack center" src="3.gif" alt="Story / details" loading="lazy">
+
+    <!-- Slice with a Pinterest link -->
+    <img class="stack center" src="4.gif" usemap="#map4" alt="Moodboard links" loading="lazy" data-naturalwidth="900">
+    <map name="map4">
+      <!-- coords based on original 900px width; JS scales them -->
+      <area href="https://pin.it/32Hlnrcfn" target="_blank" rel="noopener" alt="Pinterest board"
+            coords="353,527,663,598" shape="rect">
+    </map>
+
+    <!-- Hotels block with multiple links -->
+    <img class="stack center" src="5.gif" usemap="#map5" alt="Hotel choices" loading="lazy" data-naturalwidth="900">
+    <map name="map5">
+      <area href="https://www.fourseasons.com/sharmelsheikh/?utm_source=google&utm_medium=paidsearch&utm_campaign=Saatchi-sha-hre-mid-brd_brand.ww_sharm-na&utm_content=na-na&utm_term=na&gclsrc=aw.ds&gad_source=1&gad_campaignid=40811627&gbraid=0AAAAAD9hWRvsQ2vrzFypJyiRWXc3vznou&gclid=Cj0KCQjw-NfDBhDyARIsAD-ILeCDvKObG1arbjq3Oa-TLrzaL8T0VqB3HEaYC3nsV5Kxj71Hwwgif4gaApl0EALw_wcB"
+            target="_blank" rel="noopener" alt="Four Seasons Sharm" coords="365,1767,681,1843" shape="rect">
+      <area href="mailto:Rixos.radamis.reservation@accor.com" target="_blank" rel="noopener" alt="Rixos Radamis Email"
+            coords="380,2005,698,2074" shape="rect">
+      <area href="https://www.savoy-sharm.com/savoy" target="_blank" rel="noopener" alt="Savoy Sharm"
+            coords="378,2150,705,2223" shape="rect">
+      <area href="https://movenpick.accor.com/en/africa/egypt/sharm-el-sheikh/resort-sharm-el-sheikh.html?merchantid=seo-maps-EG-B4L5&sourceid=aw-cen&utm_medium=seo+maps&utm_source=google+Maps&utm_campaign=seo+maps&utm_content=Sharm-El-Sheik"
+            target="_blank" rel="noopener" alt="Mövenpick Sharm" coords="373,2301,693,2391" shape="rect">
+      <area href="https://hrewards.com/en/steigenberger-alcazar-el-sheikh?wt_mc=seo_listing.shr.yext.alcazar.hotel_link.text_cta"
+            target="_blank" rel="noopener" alt="Steigenberger Alcazar"
+            coords="370,2470,692,2551" shape="rect">
+    </map>
+
+    <img class="stack center" src="6.gif" alt="" loading="lazy">
+    <img class="stack center" src="7.gif" alt="" loading="lazy">
+    <img class="stack center" src="8.gif" alt="" loading="lazy">
+    <img class="stack center" src="9.gif" alt="" loading="lazy">
+    <img class="stack center" src="10.gif" alt="" loading="lazy">
+    <img class="stack center" src="11.gif" alt="" loading="lazy">
+
+    <!-- RSVP slice -->
+    <img class="stack center" src="12.gif" usemap="#map12" alt="RSVP" loading="lazy" data-naturalwidth="900">
+    <map name="map12">
+      <area href="https://forms.gle/y461Yw2YXwnfLx8XA" target="_blank" rel="noopener" alt="Open RSVP form"
+            coords="244,680,781,816" shape="rect">
+    </map>
+
+    <img class="stack center" src="13.gif" alt="Footer slice" loading="lazy">
+
+    <footer>
+      Transportation will be provided by motorboat from designated meeting points. More details will follow.
+    </footer>
+  </div>
+
+  <!-- Responsive image-map scaler
+       Scales <area coords> from original design width (data-naturalwidth) to current displayed width. -->
+  <script>
+    (function () {
+      function scaleMap(img){
+        const map = img.useMap && document.querySelector(`map[name="${img.useMap.slice(1)}"]`);
+        if(!map) return;
+        const nat = Number(img.dataset.naturalwidth || img.naturalWidth || 900); // your design width
+        const ratio = img.clientWidth / nat;
+        map.querySelectorAll('area').forEach(a=>{
+          if(!a.dataset.orig) a.dataset.orig = a.coords;
+          const pts = a.dataset.orig.split(',').map(Number);
+          const scaled = pts.map(v=>Math.round(v*ratio));
+          a.coords = scaled.join(',');
+        });
+      }
+      function init(){
+        document.querySelectorAll('img[usemap]').forEach(img=>{
+          // ensure natural width saved (if images already loaded)
+          if(!img.dataset.naturalwidth && img.naturalWidth) img.dataset.naturalwidth = img.naturalWidth;
+          scaleMap(img);
+          // rescale on resize
+          window.addEventListener('resize', ()=>scaleMap(img));
+        });
+      }
+      if(document.readyState === 'complete' || document.readyState === 'interactive') init();
+      else document.addEventListener('DOMContentLoaded', init);
+    })();
+  </script>
+</body>
+</html>

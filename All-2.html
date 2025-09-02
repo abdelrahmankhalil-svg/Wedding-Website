@@ -5,68 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Wedding — Abdelrahman & Haidy</title>
 
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@500;600&display=swap">
 
-  <!-- Palette (from your identity) -->
   <style>
-      /* HERO */
-  .hero{
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-  }
-
-  .hero__img{
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* subtle top-to-bottom gradient so text reads well on busy art */
-  .hero__scrim{
-    position:absolute; inset:0;
-    background: linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.05) 30%, rgba(0,0,0,.15));
-    pointer-events:none;
-  }
-
-  /* text overlay */
-  .hero__text{
-    position:absolute; inset:0;
-    display:grid; place-items:center;
-    text-align:center; padding: clamp(16px,4vw,48px);
-    color: #1f2a1f; /* dark olive-ish on light areas; scrim helps over dark */
-    mix-blend-mode: normal;
-  }
-
-  /* type scales */
-  .hero__kicker{
-    font-family: "Great Vibes", ui-serif, Georgia, serif;
-    font-size: clamp(36px, 8vw, 76px);
-    line-height: .95;
-    color: var(--terracotta);
-    margin: 0 0 .35em;
-  }
-
-  .hero__lead{
-    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
-    font-weight: 500;
-    font-size: clamp(16px, 2.4vw, 22px);
-    max-width: 46ch;
-    margin: 0 auto 1.1em;
-    color: #1d1f1a;
-  }
-
-  .hero__meta{
-    font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
-    font-weight: 600;
-    letter-spacing: .02em;
-    font-size: clamp(14px, 1.9vw, 18px);
-    color: var(--deep-olive);
-  }
-
-    .hero__meta .dot{ opacity:.45; margin: 0 .4em; }
-
     :root{
       --cream:#F8F2E8;
       --sage:#D9D3B6;
@@ -77,82 +21,163 @@
       --sky:#BFD6F6;
       --white:#fff;
     }
-    /* Global */
-    html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);}
+
+    /* Basic reset & global */
+    html,body{margin:0;padding:0;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
     body{font-family: ui-serif, "Cormorant Garamond", Georgia, serif; line-height:1.35;}
-    a{color:inherit;}
-    /* Frame inspired by reference site */
+    a{color:inherit; text-decoration:none;}
+    img{max-width:100%;display:block;border:0;vertical-align:middle;}
+
+    /* Page frame */
     .wrap{
       max-width: 900px;
-      margin: 0 auto;
+      margin: 28px auto;
       padding: 24px 16px 56px;
       position: relative;
     }
-    .frame{
-      position: absolute; inset:0;
-      pointer-events:none; mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.06), rgba(0,0,0,0) 60%);
-    }
     header{
-      text-align:center; padding:12px 0 6px;
+      text-align:center; padding:6px 0 12px;
       letter-spacing:.3px; font-weight:600; color:var(--deep-olive);
+      font-size: clamp(14px, 2.2vw, 18px);
     }
-
-    /* The sliced GIF stack */
-    .stack{display:block; width:100%; border:0; margin:0 auto; height:auto}
-    .center{display:block; margin-inline:auto}
-    /* subtle card footer */
-    footer{
-      margin-top:28px; text-align:center; font-size:.9rem; opacity:.8;
-    }
-
-    /* Decorative border accents (optional) */
     .accent{
       width:100%; height:10px; margin:10px 0 18px;
-      background:
-        repeating-linear-gradient(90deg,
-          var(--sage) 0 36px,
-          var(--cream) 36px 42px
-        );
-      border-radius:6px;
-      box-shadow: inset 0 0 0 2px var(--olive);
+      background: repeating-linear-gradient(90deg, var(--sage) 0 36px, var(--cream) 36px 42px);
+      border-radius:6px; box-shadow: inset 0 0 0 2px var(--olive);
     }
 
-      
-    /* Loading tweaks */
-    img[loading="lazy"]{content-visibility:auto}
-    /* Button look for RSVP if you want to add a visible CTA below too */
+    /* HERO (replaces the first three stacked images) */
+    .hero{
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    /* Make hero image responsive and keep a consistent visual height */
+    .hero__img{
+      width: 100%;
+      height: clamp(420px, 56vh, 920px);
+      object-fit: cover;
+      display: block;
+      filter: none;
+    }
+
+    /* top-to-bottom scrim for readability */
+    .hero__scrim{
+      position:absolute; inset:0;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.65) 22%, rgba(0,0,0,0.06) 100%);
+      pointer-events:none;
+      mix-blend-mode: normal;
+    }
+
+    /* overlay text centered in hero */
+    .hero__text{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding: clamp(18px, 3.6vw, 56px);
+      z-index: 2;
+      pointer-events: none; /* keeps image-links clickable if you add mapped areas */
+    }
+
+    .hero__text > .inner{
+      pointer-events: auto; /* allow interaction if you want CTA buttons later */
+      max-width: 72ch;
+    }
+
+    .hero__kicker{
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(36px, 8vw, 72px);
+      line-height: .94;
+      color: var(--terracotta);
+      margin: 0 0 .25em;
+      text-wrap: balance;
+      letter-spacing: .6px;
+      text-shadow: 0 2px 0 rgba(255,255,255,0.25);
+    }
+
+    .hero__lead{
+      font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(14px, 2.2vw, 20px);
+      max-width: 46ch;
+      margin: 0 auto 0.95em;
+      color: rgba(29,31,26,0.95);
+    }
+
+    .hero__meta{
+      font-family: "Cormorant Garamond", ui-serif, Georgia, serif;
+      font-weight: 600;
+      letter-spacing: .02em;
+      font-size: clamp(13px, 1.8vw, 16px);
+      color: var(--deep-olive);
+    }
+
+    .hero__meta .dot{ opacity:.55; margin: 0 .5em; }
+
+    /* The sliced GIF stack (the rest of your page) */
+    .stack{display:block; width:100%; border:0; margin:0 auto; height:auto;}
+    .center{display:block; margin-inline:auto;}
+
+    footer{
+      margin-top:28px; text-align:center; font-size:.95rem; opacity:.9;
+      color: rgba(43,43,43,0.92);
+    }
+
+    /* responsive helpers */
+    @media (max-width:420px){
+      .hero__kicker { font-size: clamp(26px, 12vw, 40px); }
+      .hero__lead { font-size: 14px; }
+    }
+
+    /* small CTA (if later needed) */
     .cta{
-      display:inline-block; padding:.9rem 1.25rem; background:var(--terracotta);
+      display:inline-block; padding:.65rem 1.15rem; background:var(--terracotta);
       color:var(--white); border-radius:999px; text-decoration:none; font-weight:700;
-      box-shadow: 0 6px 16px rgba(0,0,0,.12);
+      box-shadow: 0 6px 16px rgba(0,0,0,.12); font-size: .95rem;
     }
   </style>
-
-  <!-- Optional webfont similar to your invite -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap">
-
-  <!-- Preload top slices so it feels instant -->
-  <link rel="preload" as="image" href="1.gif">
-  <link rel="preload" as="image" href="2.gif">
 </head>
 <body>
   <div class="wrap">
-    <div class="frame" aria-hidden="true"></div>
-
     <header>Abdelrahman Khalil &nbsp;•&nbsp; Haidy Hossam</header>
     <div class="accent" aria-hidden="true"></div>
 
-    <!-- Slices (use your exact files). Image-maps below will resize automatically -->
-    <img class="stack center" src="Hero-Invi.jpeg" alt="Hero — invitation art" width="900" height="auto">
+    <!-- HERO SECTION (this replaces the three initial stacked images) -->
+    <section class="hero" aria-label="Invitation hero">
+      <img class="hero__img" src="Hero-Invi.jpeg" alt="Invitation art with palm motifs and decorative frame">
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <div class="hero__text" role="region" aria-label="Wedding details">
+        <div class="inner">
+          <h1 class="hero__kicker">Abdelrahman &amp; Haidy</h1>
+
+          <p class="hero__lead">
+            We are thrilled to invite you to celebrate our wedding — join us for an evening of warmth, music, and the river breeze.
+          </p>
+
+          <p class="hero__meta">
+            November 28, 2025 <span class="dot">•</span> Anakato Island, Aswan
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keep the remaining slices and maps as you had them.
+         If you want the Pinterest area to sit on the hero image, move the usemap & map here.
+         For now we preserve your original maps lower down. -->
+
+    <!-- Example: mood / extra sections -->
     <img class="stack center" src="Hero-Invi.jpeg" alt="Intro panel" loading="lazy">
     <img class="stack center" src="Hero-Invi.jpeg" alt="Story / details" loading="lazy">
 
-    <!-- Slice with a Pinterest link -->
+    <!-- Slice with a Pinterest link (keeps your mapped hotspot) -->
     <img class="stack center" src="Hero-Invi.jpeg" usemap="#map4" alt="Moodboard links" loading="lazy" data-naturalwidth="900">
     <map name="map4">
-      <!-- coords based on original 900px width; JS scales them -->
+      <!-- coords based on original 900px width; JS will scale them -->
       <area href="https://pin.it/32Hlnrcfn" target="_blank" rel="noopener" alt="Pinterest board"
             coords="353,527,663,598" shape="rect">
     </map>
@@ -173,6 +198,7 @@
             coords="370,2470,692,2551" shape="rect">
     </map>
 
+    <!-- More content slices (kept as your placeholders) -->
     <img class="stack center" src="Hero-Invi.jpeg" alt="" loading="lazy">
     <img class="stack center" src="Hero-Invi.jpeg" alt="" loading="lazy">
     <img class="stack center" src="Hero-Invi.jpeg" alt="" loading="lazy">
@@ -195,32 +221,54 @@
   </div>
 
   <!-- Responsive image-map scaler
-       Scales <area coords> from original design width (data-naturalwidth) to current displayed width. -->
+       Scales <area coords> from original design width (data-naturalwidth) to current displayed width.
+       This version waits for image load and uses a single resize handler. -->
   <script>
     (function () {
-      function scaleMap(img){
-        const map = img.useMap && document.querySelector(`map[name="${img.useMap.slice(1)}"]`);
+      const mappedImgs = Array.from(document.querySelectorAll('img[usemap]'));
+
+      function ensureNaturalWidth(img){
+        if(img.dataset.naturalwidth) return;
+        if(img.naturalWidth) img.dataset.naturalwidth = img.naturalWidth;
+      }
+
+      function scaleMapFor(img){
+        const mapName = img.useMap && img.useMap.slice(1);
+        if(!mapName) return;
+        const map = document.querySelector(`map[name="${mapName}"]`);
         if(!map) return;
-        const nat = Number(img.dataset.naturalwidth || img.naturalWidth || 900); // your design width
-        const ratio = img.clientWidth / nat;
+        const nat = Number(img.dataset.naturalwidth || img.naturalWidth || 900);
+        const ratio = (nat === 0) ? 1 : (img.clientWidth / nat);
         map.querySelectorAll('area').forEach(a=>{
           if(!a.dataset.orig) a.dataset.orig = a.coords;
           const pts = a.dataset.orig.split(',').map(Number);
-          const scaled = pts.map(v=>Math.round(v*ratio));
+          const scaled = pts.map(v => Math.round(v * ratio));
           a.coords = scaled.join(',');
         });
       }
-      function init(){
-        document.querySelectorAll('img[usemap]').forEach(img=>{
-          // ensure natural width saved (if images already loaded)
-          if(!img.dataset.naturalwidth && img.naturalWidth) img.dataset.naturalwidth = img.naturalWidth;
-          scaleMap(img);
-          // rescale on resize
-          window.addEventListener('resize', ()=>scaleMap(img));
+
+      function scaleAll(){
+        mappedImgs.forEach(img => {
+          ensureNaturalWidth(img);
+          scaleMapFor(img);
         });
       }
-      if(document.readyState === 'complete' || document.readyState === 'interactive') init();
-      else document.addEventListener('DOMContentLoaded', init);
+
+      // Wait for images to load so naturalWidth is available
+      mappedImgs.forEach(img => {
+        if(img.complete){
+          ensureNaturalWidth(img);
+        } else {
+          img.addEventListener('load', ()=>ensureNaturalWidth(img));
+        }
+      });
+
+      window.addEventListener('resize', scaleAll);
+      window.addEventListener('orientationchange', scaleAll);
+      document.addEventListener('DOMContentLoaded', ()=> {
+        // give browsers a tick to compute layout if images are cached
+        setTimeout(scaleAll, 120);
+      });
     })();
   </script>
 </body>

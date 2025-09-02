@@ -1,20 +1,52 @@
 <html>
    <head>	
       <title></title>
+      <style>
+         .container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 1000px; /* optional, you can adjust */
+         }
+
+         .container img {
+            width: 100%;
+            height: auto;
+            display: block;
+         }
+
+         .button-overlay {
+            position: absolute;
+            left: 50%;
+            top: 75%; /* places it in the last quarter */
+            transform: translate(-50%, -50%);
+            padding: 14px 28px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+         }
+
+         .button-overlay:hover {
+            background-color: #0056b3;
+         }
+      </style>
    </head>
    <body>
       <center>
-         <img src="invi.jpg" usemap="#image-map1" style="max-width:100%; height:auto;"><br>
-         <map name="image-map1">
-            <area target="" alt="" title="" href="All/s.html" coords="320,1150,700,1250" shape="rect">
-         </map>
+         <div class="container">
+            <img src="invi.jpg" usemap="#image-map1">
+            <map name="image-map1">
+               <area target="" alt="" title="" href="All/s.html" coords="320,1150,700,1250" shape="rect">
+            </map>
 
-         <!-- Button to go to All.html -->
-         <br><br>
-         <button onclick="window.location.href='All.html'" 
-                 style="padding: 12px 24px; font-size: 18px; border-radius: 8px; cursor: pointer;">
-            Go to All Page
-         </button>
+            <!-- Centered button in last quarter of photo -->
+            <button class="button-overlay" onclick="window.location.href='All.html'">
+               Click to Enter!
+            </button>
+         </div>
       </center>
    </body>
 </html>
